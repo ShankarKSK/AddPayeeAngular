@@ -1,0 +1,20 @@
+<div style="position:relative;">
+    <div style="width: 75% ;display:left">
+      <h2 style="padding-bottom:15px;text-align:center">Add Payee Screen</h2>
+      
+    </div>
+    <div style="width:25%; position:absolute; top:0; right:0;">
+        <span> Logged In Customer Id : {{loggeduser.customer_id}}</span><br>
+        <span>Logger In Customer Name : {{loggeduser.user_Name}}</span>
+  </div>
+  </div>
+
+<div id='cssmenu'>
+    <ul>
+       <li><a [routerLink]="['/user/',loggeduser.customer_id]" routerLinkActive="active">Axis Bank Account</a></li>
+       <li><a [routerLink]="['/nonuser/',loggeduser.customer_id]" routerLinkActive="active">Add Non Axis Bank Account</a></li>
+      <!-- <li><a [routerLink]="['/upid/',loggeduser.customer_id]" routerLinkActive="active">UPI ID</a></li>-->
+       <li><a [routerLink]="['/others/',loggeduser.customer_id]" routerLinkActive="active">Others</a></li>
+    </ul>
+    </div>
+    

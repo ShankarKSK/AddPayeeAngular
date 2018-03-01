@@ -1,0 +1,23 @@
+<div class="container-contact100">
+  
+  <div class="wrap-contact100">
+      <h2 style="padding-bottom:15px;text-align:center">Login</h2>
+     
+    <div class="wrap-input100 validate-input bg1" data-validate="Please Type Usernamer">
+      <span class="label-input100">User Name:</span>
+      <input #userName class="input100" type="text"  id="name" ngModel placeholder="UserName">
+    </div>
+
+    <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Password">
+      <span class="label-input100">Password :</span>
+      <input #password  class="input100" type="password" id="account_id" ngModel placeholder="Password">
+    </div>
+   
+  <button class="contact100-form-btn" (click)=login(userName.value,password.value)>Login</button>
+  <div *ngIf="message && message.length >0">
+      <span style="padding-bottom:50px;color: red" class="label-input300">Error :{{message}}</span>
+  </div>
+  </div>
+  
+  <br>
+  </div>

@@ -1,0 +1,62 @@
+<app-common></app-common>
+<div *ngIf="clickMessage">
+    <h2 style="padding-bottom:15px;text-align:center;color:purple"></h2>
+  </div>
+<div class="col-6 forum-add" style="padding-top: 40px;display: block">
+    <div class="form-label-group">
+          <label for="name">Nick Name</label>
+          <input #nickName id=" Nickname" class="form-control" placeholder="Nick Name"  autofocus="" type="character" required>
+      </div>
+    <br>
+    <div class="form-label-group">
+          <label for="name">Recipient Account Name</label>
+          <input #accName id="name" class="form-control" placeholder="Recipient Account Name" required="" autofocus="" type="character">
+      </div>
+      <br>
+    <div class="form-label-group">
+          <label for="acc_no">Recipient Account Number</label>
+          <input #accNum1 id="acc_no" class="form-control" placeholder="Recipient Account Number" required="" autofocus="" type="number">
+      </div>
+      <br>
+    <div class="form-label-group">
+          <label for="acc_no">Confirm Account Number</label>
+          <input #accNum2 id="c_acc_no" class="form-control" placeholder="Confirm Account Number" required="" autofocus="" type="number">
+      </div>
+      <br>
+    <div class="form-label-group">
+          <input type="radio" onclick="yesnoCheck()" name="gender" value="IFSC" id="IFSC" checked> IFSC  
+  <input #ifsc id="IFSC" class="form-control" placeholder="IFSC" required="" autofocus="" type="character" >
+   </div>   
+      <br>
+      <div class="form-label-group">
+          <!--<button class="btn btn-info" onclick="location.reload()">Cancel</button>-->
+          <button class="btn btn-info" style="float: right" (click)=comfirmPayee(nickName.value,accName.value,accNum1.value,accNum2.value,ifsc.value)>Next</button>
+      </div>
+  
+  </div>
+
+  <div *ngIf="show">
+      <table class="table">
+          <thead class="thead-default">
+              <tr>               
+                <th>Username</th>
+                <th>IFSC</th>
+                <th>Account Number</th>                
+                <th>Add Payee</th>
+              </tr>
+            </thead>
+            <tbody class="table-striped">
+                <tr>
+               
+                    <td>{{nonAxisUser.user_Name}}</td>
+                    <td>{{nonAxisUser.ifsc}}</td>
+                    <td>{{nonAxisUser.user_Acc_num}}</td>
+                 
+                  
+                  <td><button class="delete-btn" (click)=addPayee(nonAxisUser,loggeduser.customer_id)>Add Payee</button></td>
+                </tr>
+            </tbody>
+            </table>
+    
+    </div>
+    

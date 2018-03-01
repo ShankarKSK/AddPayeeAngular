@@ -1,0 +1,55 @@
+
+<app-common></app-common>
+<div class="container-contact100">
+<div class="wrap-contact100">
+  <div style="position:relative;">
+  <div style="width: 50% ;display:left">
+    <h2 style="padding-bottom:15px;text-align:center">Add Axis Payee</h2>
+    <div *ngIf="clickMessage">
+    <h2 style="padding-bottom:15px;text-align:center;color:purple"></h2>
+  </div>
+  </div>
+ 
+</div>
+  <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Phone Number">
+    <span class="label-input100">Phone Number:</span>
+    <input #userName class="input100" type="text"  id="name" ngModel placeholder="Enter Your Phone Number">
+  </div>
+  OR
+  <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Account Number">
+    <span class="label-input100">Account Number:</span>
+    <input #account_id  class="input100" type="text" id="account_id" ngModel placeholder="Enter Your Account Number">
+  </div>
+ 
+<button class="contact100-form-btn" (click)=search(userName.value,account_id.value)>Next</button>
+
+</div>
+<br>
+</div>
+
+<div *ngIf="show">
+  <table class="table">
+      <thead class="thead-default">
+          <tr>
+           
+            <th>User ID</th>
+            <th>Customer Id</th>
+            <th>Account Number</th>
+            <th>Username</th>
+            <th>Phone Number</th>
+            <th>Add Payee</th>
+          </tr>
+        </thead>
+        <tbody class="table-striped">
+            <tr>
+              <td>{{user.user_id}}</td>
+              <td>{{user.customer_id}}</td>
+              <td>{{user.user_Acc_num}}</td>
+              <td>{{user.user_Name}}</td>
+              <td>{{user.user_phone_num}}</td>
+              <td><button class="delete-btn" (click)=addPayee(user,loggeduser.customer_id)>Add Payee</button></td>
+            </tr>
+        </tbody>
+        </table>
+
+</div>
