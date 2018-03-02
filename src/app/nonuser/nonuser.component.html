@@ -1,6 +1,6 @@
 <app-common></app-common>
-<div *ngIf="clickMessage">
-    <h2 style="padding-bottom:15px;text-align:center;color:purple"></h2>
+<div *ngIf="confirmAdding">
+    <h2 style="padding-bottom:15px;text-align:center;color:purple">Beneficiary Successfully Added !!!</h2>
   </div>
 <div class="col-6 forum-add" style="padding-top: 40px;display: block">
     <div class="form-label-group">
@@ -41,19 +41,21 @@
               <tr>               
                 <th>Username</th>
                 <th>IFSC</th>
-                <th>Account Number</th>                
+                <th>Account Number</th>  
+                <th>Nick Name</th>               
                 <th>Add Payee</th>
               </tr>
             </thead>
             <tbody class="table-striped">
                 <tr>
                
-                    <td>{{nonAxisUser.user_Name}}</td>
-                    <td>{{nonAxisUser.ifsc}}</td>
-                    <td>{{nonAxisUser.user_Acc_num}}</td>
+                    <td>{{nonAxisUser.bene_acc_name}}</td>
+                    <td>{{nonAxisUser.bene_ifsc_code}}</td>
+                    <td>{{nonAxisUser.bene_acc_no}}</td>
+                    <td>{{nonAxisUser.bene_nick_name}}</td>
                  
                   
-                  <td><button class="delete-btn" (click)=addPayee(nonAxisUser,loggeduser.customer_id)>Add Payee</button></td>
+                  <td><button class="delete-btn" (click)=addPayee(nonAxisUser,loggeduser.customer_id)>Confirm Add</button></td>
                 </tr>
             </tbody>
             </table>

@@ -3,28 +3,52 @@
     
     <div class="form-label-group">
     <label for="card_type">Card Type</label>
-          <select name="Card_Type" input id="card_type" autofocus="">
-    <option value="volvo">Visa Credit Card</option>
-    <option value="volvo">Master Credit Card</option>
+          <select #cardType name="Card_Type" input id="card_type" autofocus="">
+    <option value="Visa Credit Card">Visa Credit Card</option>
+    
   </select>
           </div>
       <br>
     <div class="form-label-group">
           <label for="acc_no">Recipient card Number</label>
-          <input id="card_no" class="form-control" placeholder="Account Number"  autofocus="" type="number" required>
+          <input #cardNum id="card_no" class="form-control" placeholder="Account Number"  autofocus="" type="number" required>
       </div>
       <br>
       <div class="form-label-group">
           <label for="acc_no">Confirm card Number</label>
-          <input id="c_card_no" class="form-control" placeholder="Account Number"  autofocus="" type="number" required>
+          <input #cardNum2 id="c_card_no" class="form-control" placeholder="Account Number"  autofocus="" type="number" required>
       </div>
       <br>
      <div class="form-label-group">
     <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
   </div>
       <div class="form-label-group">
-          <button class="btn btn-info" onclick="location.reload()">Cancel</button>
-          <button class="btn btn-info" style="float: right" onclick="goOtherNext()">Next</button>
+          
+          <button class="btn btn-info" style="float: right" (click)=comfirmPayee(cardType.value,cardNum.value,cardNum2.value)>Next</button>
       </div>
   
   </div>
+
+  <div *ngIf="show">
+    <table class="table">
+        <thead class="thead-default">
+            <tr>               
+              <th>Credit Card Number</th>
+                         
+              <th>Add Payee</th>
+            </tr>
+          </thead>
+          <tbody class="table-striped">
+              <tr>
+             
+                  <td>{{otheruser.bene_visacard_no}}</td>
+                  
+               
+                
+                <td><button class="delete-btn" (click)=addPayee(otheruser,loggeduser.customer_id)>Confirm Add</button></td>
+              </tr>
+          </tbody>
+          </table>
+  
+  </div>
+  

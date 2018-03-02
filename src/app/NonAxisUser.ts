@@ -1,6 +1,6 @@
 export class NonAxisUser {
-    ifsc: string ;
-    user_Acc_num: string ;
-    user_Name: string ;
-    nickname:String;
+    bene_ifsc_code: string ;
+    bene_acc_no: string ;
+    bene_acc_name: string ;
+    bene_nick_name:String;
     }
