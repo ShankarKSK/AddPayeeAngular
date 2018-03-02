@@ -4,6 +4,7 @@ import {Http , Response,Headers,RequestOptions} from '@angular/http';
 import {User } from '../user';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/switchMap'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-common',
@@ -18,17 +19,11 @@ export class CommonComponent implements OnInit {
   private url:any;
   private show: boolean = false;
   private para:any;
-  constructor(private http:Http,private router: Router,private routeParam:ActivatedRoute) { }
+  constructor(private http:Http,private router: Router,private routeParam:ActivatedRoute,private data:DataService) { }
 
   ngOnInit() {
-    this.routeParam.params.subscribe((params: ActivatedRoute) => {
-      this.para=params['cust_Id']
-    })
-    console.log(this.para +"heloo");
-    this.http.get("http://localhost:8080/ft/axisOneCust?cust_Id="+this.para).subscribe((res:Response) =>{
-         this.loggeduser = res.json();
-         
-      })
+    //console.log("Inside User TS --"+this.loggeduser);
+    this.data.currentMessage.subscribe(loggeduser => this.loggeduser = loggeduser)
   }
 
 }

@@ -10,6 +10,7 @@ import { RouterModule, Routes,ActivatedRoute } from '@angular/router';
 import { CommonComponent } from './common/common.component';
 import { NonuserComponent } from './nonuser/nonuser.component';
 import { OthersComponent } from './others/others.component';
+import { DataService } from "./data.service";
 
 const appRoutes: Routes = [
   
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,HttpModule,FormsModule,RouterModule.forRoot(appRoutes),  
   ],
-  providers: [HttpModule,BrowserModule],
+  providers: [HttpModule,BrowserModule,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

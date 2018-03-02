@@ -38,7 +38,7 @@ export class NonuserComponent implements OnInit {
     
     let headers = new Headers({ 'Content-Type': 'application/json','method':'POST' });
     let options = new RequestOptions({ headers: headers });
-    this.url = "http://localhost:8080/ft/addAxis?ownCust_num="+ownCustId;
+    this.url = "http://localhost:4200/ft/addAxis?ownCust_num="+ownCustId;
    
     console.log(options+"   ----   "+ownCustId);
     this.http.post(this.url,nonAxisUser,options).subscribe(
