@@ -11,6 +11,7 @@ import { CommonComponent } from './common/common.component';
 import { NonuserComponent } from './nonuser/nonuser.component';
 import { OthersComponent } from './others/others.component';
 import { DataService } from "./data.service";
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   
@@ -25,11 +26,12 @@ const appRoutes: Routes = [
     path: 'nonuser/:cust_Id', component: NonuserComponent   
   },
   {
-    path: 'upid/:cust_Id', component: NonuserComponent   
+    path: 'search/:cust_Id', component: SearchComponent   
   },
   {
     path: 'others/:cust_Id', component: OthersComponent   
   },
+
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     LoginComponent,
     CommonComponent,
     NonuserComponent,
-    OthersComponent
+    OthersComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,HttpModule,FormsModule,RouterModule.forRoot(appRoutes),  

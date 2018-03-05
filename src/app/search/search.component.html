@@ -1,0 +1,41 @@
+<app-common></app-common>
+
+<div class="container-contact100">
+  <div class="wrap-contact100">
+      <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Phone Number">
+          <span class="label-input100">Beneficiary Type:</span>
+      
+      <select #bene_type name="Card_Type" input id="card_type" autofocus="">
+          <option value="Axis">Own Axis Beneficiary</option>
+          <option value="Nonaxis">Non Axis Beneficiary</option>
+          <option value="VMT">Other Beneficiary</option>
+      </select>
+      </div>
+      <button class="contact100-form-btn" (click)=searchRecei(bene_type.value,loggeduser.customer_id)>Search</button>
+
+</div>
+<br>
+</div>
+
+<div *ngIf="searchShow">
+  <table class="table">
+      <thead class="thead-default">
+          <tr>
+           
+            <th>Account Id</th>
+            <th>Account Number</th>
+            <th>Beneficiary Type</th>
+            
+          </tr>
+        </thead>
+        <tbody class="table-striped">
+            <tr *ngFor="let person of searchuser">
+              <td>{{person.bene_acc_no}}</td>
+              <td>{{person.bene_acc_name}}</td>
+              <td>{{person.bene_acc_type}}</td>
+              
+            </tr>
+        </tbody>
+        </table>
+
+</div>
