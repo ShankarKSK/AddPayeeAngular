@@ -1,7 +1,16 @@
+## Stage 1
+FROM node:8
 
-FROM nginx:1.13.3-alpine
-## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
-## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-COPY /dist /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app
+
+RUN npm install
+
+COPY . /usr/src/app
+
+EXPOSE 4200
+
+CMD ["npm", "start"]
